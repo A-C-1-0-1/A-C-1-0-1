@@ -1,0 +1,28 @@
+import cv2
+  
+# An object to capture and read input file
+video = cv2.VideoCapture('file.mp4')
+   
+# Check if it opens successfully
+if (video.isOpened() == False): 
+    print("Error in reading the video file")
+
+
+while(True): # read the frames
+    ret, frame = video.read() #ret checks return at each frame
+  
+    if ret == True:  
+        # Display the frame saved in the file task1_AC
+        cv2.imshow('task1_AC', frame)
+        # Press s to stop
+        if cv2.waitKey(1) & 0xFF == ord('s'):
+            break
+    else:
+        break
+# Release the video and output  
+video.release()
+
+# Close all the frames
+cv2.destroyAllWindows()
+   
+print("The video was successfully saved")
